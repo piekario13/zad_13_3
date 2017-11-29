@@ -9,7 +9,9 @@ process.stdin.on('readable', function() {
                 process.exit();
                 break;
             case '/process.env':
-                console.log(process.env);
+                process.stdout.write('Node: ${process.versions.node}\n');
+                process.stdout.write('Nazwa uytkownika: ${process.env.LOGNAME}\n');
+                process.stdout.write('Język, kodowanie: ${process.env.LANG}\n');
                 break;
             default:
                 process.stderr.write('Wrong instruction!\n');
